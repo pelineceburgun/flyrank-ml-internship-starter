@@ -1,0 +1,49 @@
+{
+  "random_state": 42,
+  "source_dataset": "data/raw/content_refresh_anonymized.csv",
+  "rows_scored": 30000,
+  "label_base_rate": 0.542,
+  "audited_generalization": {
+    "note": "client-grouped holdout, matches w06_validation_audit.ipynb -- the number to trust for out-of-sample skill",
+    "model": "random_forest",
+    "avg_precision": 0.67,
+    "roc_auc": 0.775,
+    "held_out_base_rate": 0.391
+  },
+  "deployed_model_note": "identical architecture (n_estimators=300, max_depth=8, min_samples_leaf=20, class_weight=balanced), refit on all 32 clients so every row gets a score -- not itself a generalization estimate, see audited_generalization for that",
+  "thresholds": {
+    "model_decline_risk": "model_proba >= 0.65",
+    "stale_but_visible": "days_since_last_update >= 90 and impressions_last_30d >= 500",
+    "weak_position_visible": "avg_position > 20 and impressions_90d >= 500",
+    "low_ctr_visible": "0 < avg_position <= 20 and ctr < 0.5 and impressions_90d >= 500",
+    "needs_recency_check": "days_since_last_update < 30 (human-review prompt, not a rule input)"
+  },
+  "archetype_counts": {
+    "Steady Performer": 18738,
+    "CTR Underperformer": 4658,
+    "Watchlist Decliner": 3491,
+    "Buried but Wanted": 2400,
+    "Stale Heavyweight": 713
+  },
+  "action_counts": {
+    "no_action": 18738,
+    "review_ctr": 4658,
+    "refresh_priority": 4204,
+    "review_position": 2400
+  },
+  "confidence_counts": {
+    "low": 18738,
+    "medium": 10549,
+    "high": 713
+  },
+  "decay_refresh_insight": {
+    "note": "reproduces w04_baseline_score.ipynb signal check 1 -- staleness/decline association is MIXED, not monotonic",
+    "pct_down_by_freshness_tier": {
+      "0-30": 51.1,
+      "31-90": 58.9,
+      "91-180": 61.1,
+      "181+": 47.1
+    },
+    "caveat": "181+ tier is n=174, smallest and noisiest bucket -- reversal there is not trusted"
+  }
+}
