@@ -1,1 +1,1 @@
-https://github.com/pelineceburgun/flyrank-ml-internship-starter/blob/main/docs/index.html
+https://pelineceburgun.github.io/flyrank-ml-internship-starter/
