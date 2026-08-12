@@ -218,9 +218,11 @@
     <div class="sec-head"><span class="sec-num">01</span><h2 class="sec-title">Abstract</h2></div>
     <div class="abstract-box">
       <p style="margin:0;">
-      Content teams manage far more live pages than they have review capacity for, so the
-      question this work answers is: on any given cycle, which existing pages are most worth
-      a human look for a possible refresh? Using FlyRank's anonymized starter export — 30,000
+      This is FlyRank's own content problem: across its client portfolios, content teams
+      manage far more live pages than they have review capacity for, so the question this
+      work answers is the one FlyRank's reviewers actually face — on any given cycle, which
+      existing pages are most worth a human look for a possible refresh? Using FlyRank's
+      anonymized starter export — 30,000
       pseudonymized content items across 32 clients, each described by trailing-90-day search
       and engagement metrics — I built a transparent rule baseline (stale-but-still-visible)
       and compared it against Logistic Regression, a Decision Tree, and a Random Forest, all
@@ -238,11 +240,15 @@
   <section id="intro">
     <div class="sec-head"><span class="sec-num">02</span><h2 class="sec-title">Introduction / Problem statement</h2></div>
     <p>
-    Picture a content strategist responsible for several client portfolios, looking at a
-    spreadsheet of thousands of live pages with no principled way to decide which ones to
-    open first this week. Some pages are quietly losing visibility; most are fine. Review time
-    is the scarce resource, so the real decision isn't "is this page declining?" in the
-    abstract — it's "given limited capacity, which pages go to the top of the queue?"
+    FlyRank runs search-performance monitoring for many client content portfolios at once,
+    and that scale is exactly where this problem shows up: a content strategist responsible
+    for several client portfolios is looking at a spreadsheet of thousands of live pages with
+    no principled way to decide which ones to open first this week. Some pages are quietly
+    losing visibility; most are fine. Review time is the scarce resource, so the real decision
+    isn't "is this page declining?" in the abstract — it's "given limited capacity, which
+    pages go to the top of the queue?" This paper is a case study in answering that question
+    for one lane of FlyRank's own product surface — content refresh prioritization — using
+    only anonymized, public-safe performance data.
     </p>
     <p>
     Getting this wrong has a cost in both directions. Flagging a page that didn't need
